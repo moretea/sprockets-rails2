@@ -25,6 +25,11 @@ class SprocketRails2Test < ActionController::IntegrationTest
     assert_response :success
   end
 
+  def test_should_not_modify_url_for_non_existing_assets
+    get "/test"
+    assert response.body =~ %r{src="/images/non-existing-file.png"}
+  end
+
   def test_respond_with_404_for_assets_with_invalid_fingerprint
     get "/assets/images/rails-db31f719034fee4.png"
     assert_response :missing

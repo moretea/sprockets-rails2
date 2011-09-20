@@ -8,7 +8,8 @@ module Rails
 
     def initialize_pipeline
       sprockets = Sprockets::Environment.new
-      sprockets.append_path(File.join(Rails.root, "public"))
+      sprockets.cache = ActiveSupport::Cache::FileStore.new(File.join(Rails.root, "tmp", "cache", "assets"))
+      sprockets.append_path(File.join(Rails.root, "public", "javascripts"))
       sprockets
     end
   end

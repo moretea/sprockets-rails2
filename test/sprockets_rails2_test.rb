@@ -7,21 +7,21 @@ class SprocketRails2Test < ActionController::IntegrationTest
 
   def test_fingerprint_in_stylesheet_urls
     get "/test"
-    assert response.body =~ /test-5779671c0cd90591e54659bfab06c874.css/
+    assert response.body =~ /test-a2eac1b10320f24cdd178f53df2effdd.css/
   end
 
   def test_fingerprint_in_javascript_urls
     get "/test"
-    assert response.body =~ /application-04a9f7fdb12ba261d1f64cee4c4eea89.js/
+    assert response.body =~ /application-94d362ea70095a9c3b5181d17e793524.js/
   end
 
   def test_fingerprint_in_image_urls
     get "/test"
-    assert response.body =~ /rails-db31f719034fee4df202d3c3e078f9c1.png/
+    assert response.body =~ /rails-9add994b9c64a94f1557f1241c433c67.png/
   end
 
   def test_respond_to_requests_under_assets
-    get "/assets/images/rails-db31f719034fee4df202d3c3e078f9c1.png"
+    get "/assets/images/rails-9add994b9c64a94f1557f1241c433c67.png"
     assert_response :success
   end
 
